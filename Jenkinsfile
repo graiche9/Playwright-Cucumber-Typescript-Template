@@ -22,7 +22,7 @@ pipeline{
     }
     
     post {
-        agent any 
+
 
         always {
             unstash 'allure-results' //extract results
