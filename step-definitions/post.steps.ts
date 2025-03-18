@@ -44,7 +44,6 @@ Then('le post sera créé avec le titre {string}', async function(s: string) {
     await browser.close();
 })
 
-
 Then('un message d erreur s affiche', async function() {
     const errorMessage = await postPage.getErrorMessage();
     expect(errorMessage).toContain("This field is required.");

@@ -1,4 +1,4 @@
-Feature: OrangeHRM Login
+Feature: Login
 
   @valid
   Scenario: Successful login
