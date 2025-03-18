@@ -10,9 +10,12 @@ pipeline{
         }
     }
             steps {
+                script{
+
                 sh 'npm ci'
                 sh 'npx cucumber-js'
                 stash name: 'allure-results', includes: 'allure-results/*'
+            }
             }
         }
 
