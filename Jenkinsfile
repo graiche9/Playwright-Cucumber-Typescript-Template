@@ -1,32 +1,27 @@
 pipeline{
-    agent {
-        docker {
-           image 'mcr.microsoft.com/playwright:v1.51.0-noble'
-        }
-    }
+    agent any 
 
     stages {
 
         stage('Install Dependencies') {
+        agent {
+        docker {
+           image 'mcr.microsoft.com/playwright:v1.51.0-noble'
+        }
+    }
             steps {
                 sh 'npm ci'
-            }
-        }
-
-        stage('test'){
-            steps{
                 sh 'npx cucumber-js'
                 stash name: 'allure-results', includes: 'allure-results/*'
             }
         }
+
     }
     
     post {
 
 
         always {
-            agent any 
-            
             unstash 'allure-results' //extract results
             script {
                 allure([
