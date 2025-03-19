@@ -79,9 +79,9 @@ pipeline {
             //         trendsLimit: 100
             unstash 'allure-results' //extract results
             script {
-                allure([
-                commandline: 'allure'    
+                allure([ 
                 includeProperties: false,
+                commandline: 'allure'  
                 jdk: '',
                 properties: [],
                 reportBuildPolicy: 'ALWAYS',
