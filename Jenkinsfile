@@ -80,6 +80,7 @@ pipeline {
             unstash 'allure-results' //extract results
             script {
                 allure([ 
+                    
                 includeProperties: false,
                 commandline: 'allure',  
                 jdk: '',
