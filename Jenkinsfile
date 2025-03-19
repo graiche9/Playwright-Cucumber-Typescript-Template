@@ -81,7 +81,7 @@ pipeline {
             script {
                 allure([ 
                 includeProperties: false,
-                commandline: 'allure'  
+                commandline: 'allure',  
                 jdk: '',
                 properties: [],
                 reportBuildPolicy: 'ALWAYS',
