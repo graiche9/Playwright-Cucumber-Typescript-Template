@@ -61,6 +61,7 @@ pipeline {
     }
     post {
         always {
+
             //sh 'ls -al reports/' 
 
             // cucumber buildStatus: 'UNSTABLE',
@@ -79,6 +80,7 @@ pipeline {
             unstash 'allure-results' //extract results
             script {
                 allure([
+                commandline: 'allure'    
                 includeProperties: false,
                 jdk: '',
                 properties: [],
