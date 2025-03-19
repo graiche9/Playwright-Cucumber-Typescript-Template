@@ -17,6 +17,8 @@ pipeline{
                 //sh 'npx cucumber-js'
                 sh 'npx cucumber-js --format json:allure-results/cucumber-report.json'
                 sh 'npx allure generate allure-results -o allure-report'
+                sh 'ls -l || echo "Root directory is empty!"'
+                sh 'ls -l allure-results || echo "allure-results directory is missing!"'
                 stash name: 'allure-results', includes: 'allure-results/*'
             }
             }
@@ -26,7 +28,7 @@ pipeline{
     
     post {
         always {
-            //unstash 'allure-results' //extract results
+            unstash 'allure-results' //extract results
             script {
                 allure([
                 includeProperties: false,
