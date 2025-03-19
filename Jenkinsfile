@@ -13,9 +13,8 @@ pipeline{
                 script{
 
                 sh 'npm ci'
-                //sh 'npx cucumber-js'
-                sh 'npx cucumber-js --format json:allure-results/cucumber-report.json'
-                sh 'npx allure generate allure-results -o allure-report'
+                sh 'npx cucumber-js'
+                //sh 'npx allure generate allure-results -o allure-report'
                 stash name: 'allure-results', includes: 'allure-report/*'
             }
             }
