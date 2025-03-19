@@ -26,7 +26,7 @@ pipeline{
     
     post {
         always {
-            unstash 'allure-results' //extract results
+            //unstash 'allure-results' //extract results
             script {
                 allure([
                 includeProperties: false,
