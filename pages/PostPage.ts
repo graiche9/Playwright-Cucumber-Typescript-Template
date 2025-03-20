@@ -8,7 +8,7 @@ export class PostPage {
   }
 
   elements = {
-    addButton: () => this.page.locator('a.addlink'),
+    addButton: () => this.page.getByRole('link', {name: 'Add'}),
     titleInput: () => this.page.locator('input#id_title'),
     contentTextarea: () => this.page.locator('textarea#id_content'),
     saveButton: () => this.page.locator('input[name="_save"]'),
@@ -16,12 +16,7 @@ export class PostPage {
     errorMessage: () => this.page.locator('.errorlist')
   };
 
-  async goto() {
-    await this.page.goto('http://192.168.1.95:9091/admin/');
-  }
-
   async clickAddButton() {
-    await this.page.waitForSelector('a.addlink', { state: 'visible', timeout: 10000 });
     await this.elements.addButton().click();
   }
 

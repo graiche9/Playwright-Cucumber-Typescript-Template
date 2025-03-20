@@ -1,6 +1,6 @@
 import { Before, After } from '@cucumber/cucumber';
 import { chromium, Browser, Page } from 'playwright';
-/*
+
 let browser: Browser;
 let page: Page;
 
@@ -24,4 +24,4 @@ After(async function (scenario) {
     await page.context().tracing.stop();
   }
   await browser.close();
-});*/
+});

@@ -11,11 +11,11 @@ export class LoginPage {
     userName: () => this.page.locator('input[name="username"]'),
     password: () => this.page.locator('input[name="password"]'),
     loginButton: () => this.page.locator('input[type="submit"]'),
-    errorMessage: () => this.page.locator('.oxd-alert-content')
+    errorMessage: () => this.page.locator('.errornote')
   };
 
-  async goto() {
-    await this.page.goto('http://192.168.1.95:9091/admin/login/?next=/admin/');
+  async goto(env : string) {
+    await this.page.goto(env);
   }
 
   async saisirUserName(username: string) {
